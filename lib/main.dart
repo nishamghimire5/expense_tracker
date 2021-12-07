@@ -37,7 +37,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -45,6 +45,32 @@ class MyHomePage extends StatelessWidget {
             child: Card(
               color: Colors.green,
               child: Text('Chart!'),
+            ),
+          ),
+          Card(
+            elevation: 6,
+            child: Container(
+              //wrapping to put padding
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end, //to put the button to right
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text('Save'),
+                    style: TextButton.styleFrom(
+                      //for text color in TextButton
+                      primary: Colors.pink[600],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Column(
@@ -77,7 +103,9 @@ class MyHomePage extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
-                        Text(DateFormat.yMMMd().format(tx.date),  //for date formatting with intl package
+                        Text(
+                            DateFormat.yMMMd().format(tx
+                                .date), //for date formatting with intl package
                             style: TextStyle(
                                 color: Colors.grey[700],
                                 fontStyle: FontStyle.italic)),
