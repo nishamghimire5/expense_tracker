@@ -30,6 +30,11 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
+  // String titleInput;
+  // String amountInput;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,16 +58,29 @@ class MyHomePage extends StatelessWidget {
               //wrapping to put padding
               padding: EdgeInsets.all(10),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end, //to put the button to right
+                crossAxisAlignment:
+                    CrossAxisAlignment.end, //to put the button to right
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: 'Title'),
+                    controller: titleController,
+                    // onChanged: (input) {
+                    //   titleInput = input;
+                    // },
                   ),
                   TextField(
                     decoration: InputDecoration(labelText: 'Amount'),
+                    controller: amountController,
+                    // onChanged: (input) {
+                    //   amountInput = input;
+                    // },
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print(titleController.text);
+                      // print(amountInput);
+                      // print(titleInput);
+                    },
                     child: Text('Save'),
                     style: TextButton.styleFrom(
                       //for text color in TextButton
