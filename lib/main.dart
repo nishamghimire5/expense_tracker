@@ -38,21 +38,26 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
-        title: txTitle,
-        amount: txAmount,
-        date: DateTime.now(),
-        id: DateTime.now().toString(),
-        );
-        setState(() {
-    _userTransactions.add(newTx);
+      title: txTitle,
+      amount: txAmount,
+      date: DateTime.now(),
+      id: DateTime.now().toString(),
+    );
+    setState(() {
+      _userTransactions.add(newTx);
     });
-}
+  }
 
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
       builder: (_) {
         return NewTransaction(_addNewTransaction);
+         // return GestureDetector(
+        //   // onTap: () {},
+        //   child: NewTransaction(_addNewTransaction),
+        //   // behavior: HitTestBehavior.opaque,
+        // );
       },
     );
   }
@@ -84,8 +89,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.add), onPressed: () => _startAddNewTransaction(context),),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => _startAddNewTransaction(context),
+      ),
     );
   }
 }
